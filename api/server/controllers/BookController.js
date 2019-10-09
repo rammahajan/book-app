@@ -6,7 +6,7 @@ const util = new Util();
 class BookController {
     static async getAllBooks(req, res) {
         try {
-            const allBooks = BookService.getAllBooks();
+            const allBooks = await BookService.getAllBooks();
             if (allBooks.length > 0) {
                 util.setSuccess(200, 'Books retrieved', allBooks);
             } else {

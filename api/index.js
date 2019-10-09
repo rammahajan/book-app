@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import config from 'dotenv';
 import bookRoutes from './server/routes/BookRoutes';
+import moodRoutes from './server/routes/MoodRoutes';
 
 config.config();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({
 const port = process.env.PORT || 8000;
 
 app.use('/api/v1/books', bookRoutes);
+app.use('/api/v1/moods', moodRoutes);
 
 app.get('*', (req, res) => {
     res.status(200).send({
